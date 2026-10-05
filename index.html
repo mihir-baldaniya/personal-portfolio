@@ -2,154 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ======================= SEO ======================= -->
-    <title>Mihir Baldaniya | Full Stack &amp; React Developer, Gujarat</title>
-    <meta name="description" content="Portfolio of Mihir Baldaniya, a full stack web developer from Gujarat, India. Explore projects built with React, Node.js and MongoDB, and get in touch." />
+    <meta
+      name="description"
+      content="Portfolio of Mihir Baldaniya, a Full Stack Web Developer specializing in React, Node.js, MongoDB and modern responsive web applications."
+    />
+
     <meta name="author" content="Mihir Baldaniya" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <!-- Main address of the site: must match the version your host redirects to (www or non-www) -->
-    <link rel="canonical" href="https://mihirbaldaniya.site/" />
+
     <meta name="theme-color" content="#f8f8f6" />
 
-    <!-- Open Graph (link previews on Facebook, LinkedIn, WhatsApp) -->
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Mihir Baldaniya | Full Stack Web Developer"
+    />
+
+    <meta
+      property="og:description"
+      content="Portfolio of Mihir Baldaniya, a Full Stack Web Developer specializing in React, Node.js, MongoDB and modern responsive web applications."
+    />
+
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Mihir Baldaniya" />
-    <meta property="og:title" content="Mihir Baldaniya | Full Stack &amp; React Developer, Gujarat" />
-    <meta property="og:description" content="Full stack web developer from Gujarat, India. Projects built with React, Node.js and MongoDB." />
-    <meta property="og:url" content="https://mihirbaldaniya.site/" />
-    <!-- Create this image (1200 x 630, under ~300 KB) and upload it to assets/images/ -->
-    <meta property="og:image" content="https://mihirbaldaniya.site/assets/images/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Mihir Baldaniya, full stack web developer portfolio" />
-    <meta property="og:locale" content="en_IN" />
 
-    <!-- Twitter / X card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mihir Baldaniya | Full Stack &amp; React Developer, Gujarat" />
-    <meta name="twitter:description" content="Full stack web developer from Gujarat, India. Projects built with React, Node.js and MongoDB." />
-    <meta name="twitter:image" content="https://mihirbaldaniya.site/assets/images/og-image.jpg" />
-    <meta name="twitter:image:alt" content="Mihir Baldaniya, full stack web developer portfolio" />
+    <!-- Browser Tab Logo / Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/Logo_B's.png" />
 
-    <!-- Favicon (browser tab icon) -->
-    <link rel="icon" type="image/png" href="assets/images/cropped_circle_image.png" />
-    <link rel="apple-touch-icon" href="assets/images/cropped_circle_image.png" />
-
-    <!-- Google Search Console verification (uncomment only if you verify with the meta tag method) -->
-    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /> -->
-
-    <!-- Google Analytics 4 (uncomment and replace both G-XXXXXXXXXX with your Measurement ID)
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag("js", new Date());
-      gtag("config", "G-XXXXXXXXXX");
-    </script>
-    -->
+    <title>Mihir Baldaniya | Full Stack Web Developer</title>
 
     <link rel="stylesheet" href="css/style.css" />
-
-    <!-- Keeps the content visible if JavaScript is off or fails to load -->
-    <noscript>
-      <style>
-        body { opacity: 1; overflow: auto; }
-        #page-loader { display: none; }
-        .reveal, .hero-photo, .hero-content { opacity: 1; transform: none; }
-      </style>
-    </noscript>
-
-    <!-- Structured data: helps Google understand who the page is about.
-         Update "dateModified" when you make real content changes. -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "@id": "https://mihirbaldaniya.site/#website",
-            "url": "https://mihirbaldaniya.site/",
-            "name": "Mihir Baldaniya",
-            "description": "Portfolio of Mihir Baldaniya, a full stack web developer from Gujarat, India.",
-            "inLanguage": "en-IN",
-            "publisher": { "@id": "https://mihirbaldaniya.site/#person" }
-          },
-          {
-            "@type": "ProfilePage",
-            "@id": "https://mihirbaldaniya.site/#webpage",
-            "url": "https://mihirbaldaniya.site/",
-            "name": "Mihir Baldaniya | Full Stack & React Developer, Gujarat",
-            "description": "Portfolio of Mihir Baldaniya, a full stack web developer from Gujarat, India. Explore projects built with React, Node.js and MongoDB.",
-            "inLanguage": "en-IN",
-            "dateModified": "2026-10-05",
-            "isPartOf": { "@id": "https://mihirbaldaniya.site/#website" },
-            "about": { "@id": "https://mihirbaldaniya.site/#person" },
-            "mainEntity": { "@id": "https://mihirbaldaniya.site/#person" },
-            "primaryImageOfPage": {
-              "@type": "ImageObject",
-              "url": "https://mihirbaldaniya.site/assets/images/og-image.jpg",
-              "width": 1200,
-              "height": 630
-            }
-          },
-          {
-            "@type": "Person",
-            "@id": "https://mihirbaldaniya.site/#person",
-            "name": "Mihir Baldaniya",
-            "url": "https://mihirbaldaniya.site/",
-            "image": "https://mihirbaldaniya.site/assets/images/profile.png",
-            "jobTitle": "Full Stack Web Developer",
-            "description": "Full stack web developer and BCA student from Gujarat, India, working with React.js, Node.js, Express.js and MongoDB.",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Surat",
-              "addressRegion": "Gujarat",
-              "addressCountry": "IN"
-            },
-            "alumniOf": {
-              "@type": "CollegeOrUniversity",
-              "name": "Maharaja Krishnakumarsinhji Bhavnagar University"
-            },
-            "knowsAbout": [
-              "HTML",
-              "CSS",
-              "JavaScript",
-              "React.js",
-              "Node.js",
-              "Express.js",
-              "MongoDB",
-              "PostgreSQL",
-              "REST APIs",
-              "Tailwind CSS",
-              "Redux",
-              "Git and GitHub",
-              "Responsive web design",
-              "MERN stack development"
-            ],
-            "sameAs": [
-              "https://github.com/mihircodex",
-              "https://linkedin.com/in/mihirbaldaniyaofficial",
-              "https://www.instagram.com/mihir_baldaniya/"
-            ]
-          }
-        ]
-      }
-    </script>
   </head>
-
   <body>
-    <!-- ======================= Page loader =======================
-         Two black panels cover the screen and split open once the
-         page has loaded (animation is handled in css + js/script.js). -->
-    <div id="page-loader">
+
+
+    <!-- Page Loader -->
+    <!-- <div id="page-loader">
       <div class="loader-panel loader-top"></div>
       <div class="loader-panel loader-bottom"></div>
 
+      <div class="loader-content">
+        <span>MIHIR</span>
+        <span>BALDANIYA</span>
+      </div>
+    </div> -->
+
+    <!-- Page Loader -->
+    <div id="page-loader">
+      <!-- Top half -->
+      <div class="loader-panel loader-top"></div>
+
+      <!-- Bottom half -->
+      <div class="loader-panel loader-bottom"></div>
+
+      <!-- Logo -->
       <div class="loader-logo">
         <img
-          src="assets/images/cropped_circle_image.png"
+          src="assets/images/Logo_B's.png"
           alt="Mihir Baldaniya"
           draggable="false"
           ondragstart="return false;"
@@ -162,26 +72,23 @@
       </div>
     </div>
 
-    <!-- Accessibility: lets keyboard users skip the navigation -->
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- ======================= Header ======================= -->
     <header class="site-header" id="top">
       <div class="container nav-wrap">
-        <!-- Logo + name (empty alt: the link already has a label and the name is shown next to the logo) -->
         <a class="brand" href="#top" aria-label="Mihir Baldaniya home">
           <img
             src="assets/images/Logo_Bs.svg"
-            alt=""
+            alt="Mihir Baldaniya logo"
             class="brand-logo"
             draggable="false"
             ondragstart="return false;"
             oncontextmenu="return false;"
           />
+
           <span>MIHIR BALDANIYA</span>
         </a>
 
-        <!-- Hamburger button (visible on mobile only) -->
         <button
           class="menu-toggle"
           type="button"
@@ -193,7 +100,6 @@
           <span></span>
         </button>
 
-        <!-- Main navigation -->
         <nav class="site-nav" id="site-menu" aria-label="Primary navigation">
           <a href="#about">About</a>
           <a href="#work">Work</a>
@@ -202,33 +108,28 @@
           <a href="#contact">Contact</a>
         </nav>
       </div>
+      
     </header>
-
     <main id="main">
-      <!-- ======================= Hero ======================= -->
       <section class="hero section">
         <div class="container">
           <div class="hero-layout">
-            <!-- Profile photo (the "MB" initials show if the image fails to load).
-                 It is the first image on the page, so it loads with high priority. -->
             <div class="hero-photo">
               <div class="photo-box">
                 <img
                   src="assets/images/profile.png"
-                  alt="Portrait of Mihir Baldaniya"
-                  fetchpriority="high"
-                  decoding="async"
+                  alt="Mihir Baldaniya profile photo"
                   draggable="false"
                   ondragstart="return false;"
                   oncontextmenu="return false;"
                   onclick="return false;"
                   onerror="this.style.display = 'none'"
                 />
+
                 <span>MB</span>
               </div>
             </div>
 
-            <!-- Intro text and buttons -->
             <div class="hero-content">
               <p class="eyebrow">FULL STACK WEB DEVELOPER</p>
               <h1>Mihir Baldaniya</h1>
@@ -240,7 +141,9 @@
               </p>
 
               <div class="hero-links">
-                <a class="primary-link" href="resume.pdf" download>Download Resume <span>↓</span></a>
+                <a class="primary-link" href="resume.pdf" download
+                  >Download Resume <span>↓</span></a
+                >
                 <a href="#contact">Let's Talk <span>→</span></a>
               </div>
             </div>
@@ -248,9 +151,6 @@
         </div>
       </section>
 
-      <!-- ======================= Ticker =======================
-           The content is repeated twice on purpose, so the
-           scrolling animation loops without a visible jump. -->
       <section class="ticker" aria-label="Developer services">
         <div class="ticker-track">
           <span>Available for Opportunities</span><b>•</b>
@@ -258,7 +158,6 @@
           <span>Responsive Web Design</span><b>•</b>
           <span>React · Node.js · MongoDB</span><b>•</b>
           <span>Let's Build Something</span><b>•</b>
-          <!-- Copy for the seamless loop -->
           <span>Available for Opportunities</span><b>•</b>
           <span>Full Stack Development</span><b>•</b>
           <span>Responsive Web Design</span><b>•</b>
@@ -267,7 +166,6 @@
         </div>
       </section>
 
-      <!-- ======================= About ======================= -->
       <section class="section" id="about">
         <div class="container">
           <div class="section-title">
@@ -276,21 +174,17 @@
           </div>
 
           <div class="about-grid">
-            <!-- Left: highlighted statement -->
             <div>
               <p class="statement">
                 Building modern web experiences with a focus on
                 <em>clarity, responsiveness and real-world use.</em>
               </p>
             </div>
-
-            <!-- Right: description and quick facts -->
             <div class="copy-column">
               <p>
-                I am a full stack web developer from Gujarat, working mostly
-                with the MERN stack: MongoDB, Express.js, React.js and Node.js.
-                I am completing my BCA and gaining practical experience through
-                internship work and personal projects.
+                I am a full-stack web developer specializing in React, Node.js
+                and MongoDB. I enjoy creating responsive web applications and
+                solving real-world problems.
               </p>
               <p>
                 My work covers frontend development, backend services, APIs,
@@ -300,20 +194,21 @@
 
               <div class="quick-info">
                 <div>
-                  <span>Role</span>
-                  <strong>Frontend-focused React.js Developer</strong>
+                  <span>Role</span
+                  ><strong>Frontend-focused React.js Developer</strong>
                 </div>
                 <div>
-                  <span>Location</span>
-                  <strong>Surat, Gujarat, India</strong>
+                  <span>Location</span><strong>Surat, Gujarat, India</strong>
                 </div>
                 <div>
-                  <span>Focus</span>
-                  <strong>Web Applications &amp; Responsive UI</strong>
+                  <span>Focus</span
+                  ><strong>Web Applications &amp; Responsive UI</strong>
                 </div>
                 <div>
-                  <span>Email</span>
-                  <a href="mailto:mihir.baldaniya23@gmail.com">mihir.baldaniya23@gmail.com</a>
+                  <span>Email</span
+                  ><a href="mailto:mihir.baldaniya23@gmail.com"
+                    >mihir.baldaniya23@gmail.com</a
+                  >
                 </div>
               </div>
             </div>
@@ -321,37 +216,34 @@
         </div>
       </section>
 
-      <!-- ======================= Projects ======================= -->
       <section class="section work-section" id="work">
         <div class="container">
           <div class="section-title">
             <span></span>
-            <h2>Selected Projects</h2>
+            <h2>Projects</h2>
           </div>
           <p class="section-subtitle">
-            A selection of web projects, from a responsive school website to a
-            React landing page for an AI companion product.
+            A collection of projects built with modern web technologies.
           </p>
 
           <div class="project-list">
-            <!-- Project 1: Velo School Website -->
             <article class="project">
-              <!-- Project preview image (below the fold, so it loads lazily) -->
+              <!-- RIGHT SIDE: REAL PROJECT IMAGE -->
               <div class="project-image school-project">
                 <img
                   src="assets/images/velo-school.png"
-                  alt="Homepage of the Velo School website shown on desktop"
-                  loading="lazy"
-                  decoding="async"
+                  alt="Velo School Website Preview"
                   draggable="false"
                   oncontextmenu="return false;"
                 />
               </div>
 
-              <!-- Project details -->
+              <!-- LEFT SIDE: PROJECT CONTENT -->
               <div class="project-content">
                 <div class="project-label">01 / RESPONSIVE WEBSITE</div>
+
                 <h3>Velo School Website</h3>
+
                 <p>
                   An end-to-end responsive school website designed to provide a
                   modern digital experience for students, parents and visitors.
@@ -374,34 +266,42 @@
                 </div>
 
                 <div class="project-actions">
-                  <a href="https://veloschool.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    Visit Velo School live site ↗
+                  <a
+                    href="https://veloschool.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Live Website ↗
                   </a>
-                  <a href="https://github.com/mihircodex/VeloSchool" target="_blank" rel="noopener noreferrer">
-                    Velo School on GitHub ↗
+
+                  <a
+                    href="https://github.com/mihircodex/VeloSchool"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub ↗
                   </a>
                 </div>
               </div>
             </article>
 
-            <!-- Project 2: AlmaAI Landing Page -->
             <article class="project">
-              <!-- Project preview image (below the fold, so it loads lazily) -->
+              <!-- ALMAAI PROJECT IMAGE -->
               <div class="project-image alma-project">
                 <img
                   src="assets/images/alma-ai.png"
-                  alt="AlmaAI landing page with hero section and navigation"
-                  loading="lazy"
-                  decoding="async"
+                  alt="AlmaAI Landing Page Preview"
                   draggable="false"
                   oncontextmenu="return false;"
                 />
               </div>
 
-              <!-- Project details -->
+              <!-- PROJECT CONTENT -->
               <div class="project-content">
                 <div class="project-label">02 / AI PRODUCT LANDING PAGE</div>
+
                 <h3>AlmaAI Landing Page</h3>
+
                 <p>
                   Responsive AI companion landing page built with a modern
                   interface, reusable components and responsive layouts for
@@ -429,7 +329,6 @@
         </div>
       </section>
 
-      <!-- ======================= Skills & Education ======================= -->
       <section class="section" id="skills">
         <div class="container">
           <div class="section-title">
@@ -437,7 +336,6 @@
             <h2>Skills &amp; Education</h2>
           </div>
 
-          <!-- Skill groups -->
           <div class="skill-columns">
             <div class="skill-block">
               <p class="eyebrow">WEB DEVELOPMENT</p>
@@ -448,16 +346,14 @@
                 experiences.
               </p>
             </div>
-
             <div class="skill-block">
               <p class="eyebrow">SYSTEMS &amp; APIS</p>
               <h3>Backend &amp; Databases</h3>
               <p>
-                Node.js, Express.js, MongoDB and PostgreSQL, with REST API
-                development and database-driven web applications.
+                Node.js, MongoDB and PostgreSQL, with REST API development and
+                database-driven web applications.
               </p>
             </div>
-
             <div class="skill-block">
               <p class="eyebrow">DEVELOPMENT TOOLS</p>
               <h3>Tools &amp; Workflow</h3>
@@ -468,32 +364,25 @@
             </div>
           </div>
 
-          <!-- Technology grid -->
           <div class="tech-section">
             <p class="eyebrow">TECHNOLOGIES</p>
             <div class="tech-row">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>React</span>
-              <span>Node.js</span>
-              <span>MongoDB</span>
-              <span>PostgreSQL</span>
-              <span>Redux</span>
-              <span>Git</span>
-              <span>GitHub</span>
-              <span>Postman</span>
-              <span>TanStack Query</span>
+              <span>HTML</span><span>CSS</span><span>JavaScript</span
+              ><span>React</span><span>Node.js</span><span>MongoDB</span>
+              <span>PostgreSQL</span><span>Redux</span><span>Git</span
+              ><span>GitHub</span><span>Postman</span
+              ><span>TanStack Query</span>
             </div>
           </div>
 
-          <!-- Education -->
           <div class="education">
             <p class="eyebrow">EDUCATION</p>
             <div class="education-row">
               <div>
                 <h3>Bachelor of Computer Applications (BCA)</h3>
-                <p>Shree Swami Sahajanand College of Commerce &amp; Management</p>
+                <p>
+                  Shree Swami Sahajanand College of Commerce &amp; Management
+                </p>
               </div>
               <strong>2023 — 2026</strong>
             </div>
@@ -501,16 +390,14 @@
         </div>
       </section>
 
-      <!-- ======================= Experience ======================= -->
       <section class="section resume-section" id="resume">
         <div class="container">
           <div class="section-title">
             <span></span>
-            <h2>Internship &amp; Training</h2>
+            <h2>Experience</h2>
           </div>
 
           <div class="resume-list">
-            <!-- Experience 1: IT Hub Software Solutions -->
             <article class="resume-item">
               <div class="resume-date">06 MONTHS</div>
               <div>
@@ -522,14 +409,12 @@
                   frontend implementation.
                 </p>
                 <div class="tags">
-                  <span>Velo School Website</span>
-                  <span>Frontend</span>
-                  <span>Responsive UI</span>
+                  <span>Velo School Website</span><span>Frontend</span
+                  ><span>Responsive UI</span>
                 </div>
               </div>
             </article>
 
-            <!-- Experience 2: Karonit Training (current) -->
             <article class="resume-item">
               <div class="resume-date">CURRENT</div>
               <div>
@@ -541,121 +426,189 @@
                   live work.
                 </p>
                 <div class="tags">
-                  <span>Full Stack</span>
-                  <span>Practical Projects</span>
-                  <span>Training</span>
+                  <span>Full Stack</span><span>Practical Projects</span
+                  ><span>Training</span>
                 </div>
               </div>
             </article>
           </div>
 
-          <!-- Resume download banner -->
           <div class="resume-download">
             <div>
               <h3>Want to know more about my journey?</h3>
               <p>Explore my experience, projects and technical skills.</p>
             </div>
-            <a href="resume.pdf" download class="primary-link">Download Resume ↓</a>
+            <a href="resume.pdf" download class="primary-link"
+              >Download Resume ↓</a
+            >
           </div>
         </div>
       </section>
 
-      <!-- ======================= Contact ======================= -->
       <section class="section contact-section" id="contact">
         <div class="container">
           <div class="section-title">
             <span></span>
-            <h2>Get in Touch</h2>
+            <h2>Let's Work Together</h2>
           </div>
-
           <div class="contact-intro">
             <p>
-              Have a project, internship or job opportunity in mind? I am based
-              in Gujarat and happy to talk about full stack or frontend work.
-              Send a message using the form or email me directly.
+              Have a project idea, opportunity or just want to connect? Feel
+              free to reach out.
             </p>
-            <a class="email-link" href="mailto:mihir.baldaniya23@gmail.com">mihir.baldaniya23@gmail.com ↗</a>
+            <a class="email-link" href="mailto:mihir.baldaniya23@gmail.com"
+              >mihir.baldaniya23@gmail.com ↗</a
+            >
           </div>
 
           <div class="contact-layout">
-            <!-- Left: contact details and social links -->
             <div class="contact-meta">
               <div>
-                <span>LOCATION</span>
-                <strong>Surat, Gujarat, India</strong>
+                <span>LOCATION</span><strong>Surat, Gujarat, India</strong>
               </div>
               <div>
-                <span>ROLE</span>
-                <strong>Full Stack Web Developer</strong>
+                <span>ROLE</span><strong>Full Stack Web Developer</strong>
               </div>
-
               <div class="socials">
-                <a href="https://github.com/mihircodex" target="_blank" rel="noopener noreferrer" aria-label="Mihir Baldaniya on GitHub">GitHub ↗</a>
-                <a href="https://linkedin.com/in/mihirbaldaniyaofficial" target="_blank" rel="noopener noreferrer" aria-label="Mihir Baldaniya on LinkedIn">LinkedIn ↗</a>
-                <a href="https://www.instagram.com/mihir_baldaniya/" target="_blank" rel="noopener noreferrer" aria-label="Mihir Baldaniya on Instagram">Instagram ↗</a>
+                <a
+                  href="https://github.com/mihircodex"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  >GitHub ↗</a
+                >
+                <a
+                  href="https://linkedin.com/in/mihirbaldaniyaofficial"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  >LinkedIn ↗</a
+                >
+                <a
+                  href="https://www.instagram.com/mihir_baldaniya/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  >Instagram ↗</a
+                >
               </div>
             </div>
 
-            <!-- Right: contact form
-                 Validated and submitted from js/script.js.
-                 The two hidden fields are used by the form service. -->
-            <form id="contact-form" novalidate>
-              <input type="hidden" name="access_key" value="ed647462-3d28-49dc-b84d-a028d55f69c2" />
-              <input type="hidden" name="from_name" value="Mihir Baldaniya Portfolio" />
 
-              <div class="form-grid">
-                <label>
-                  Name
-                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" />
-                  <small id="name-error"></small>
-                </label>
 
-                <label>
-                  Email
-                  <input id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com" />
-                  <small id="email-error"></small>
-                </label>
-              </div>
+            <!-- FORM  -->
+          <form id="contact-form" novalidate>
 
-              <label>
-                Subject
-                <input id="subject" name="subject" type="text" placeholder="What's this about?" />
-                <small id="subject-error"></small>
-              </label>
+  <input
+    type="hidden"
+    name="access_key"
+    value="ed647462-3d28-49dc-b84d-a028d55f69c2"
+  />
 
-              <label>
-                Message
-                <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or idea..."></textarea>
-                <small id="message-error"></small>
-              </label>
+  <input
+    type="hidden"
+    name="from_name"
+    value="Mihir Baldaniya Portfolio"
+  />
 
-              <button type="submit" id="submit-button">Send Message ↗</button>
+  <div class="form-grid">
 
-              <!-- Success / status message (announced by screen readers) -->
-              <p class="success" id="form-success" role="status" aria-live="polite"></p>
-            </form>
+    <label>
+      Name
+
+      <input
+        id="name"
+        name="name"
+        type="text"
+        autocomplete="name"
+        placeholder="Your name"
+      />
+
+      <small id="name-error"></small>
+    </label>
+
+
+    <label>
+      Email
+
+      <input
+        id="email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        placeholder="your@email.com"
+      />
+
+      <small id="email-error"></small>
+    </label>
+
+  </div>
+
+
+  <label>
+    Subject
+
+    <input
+      id="subject"
+      name="subject"
+      type="text"
+      placeholder="What's this about?"
+    />
+
+    <small id="subject-error"></small>
+  </label>
+
+
+  <label>
+    Message
+
+    <textarea
+      id="message"
+      name="message"
+      rows="6"
+      placeholder="Tell me about your project or idea..."
+    ></textarea>
+
+    <small id="message-error"></small>
+  </label>
+
+
+  <button
+    type="submit"
+    id="submit-button"
+  >
+    Send Message ↗
+  </button>
+
+
+  <p
+    class="success"
+    id="form-success"
+    role="status"
+    aria-live="polite"
+  ></p>
+
+</form>
+            <!-- FROM -->
           </div>
         </div>
       </section>
     </main>
 
-    <!-- ======================= Footer ======================= -->
     <footer>
       <div class="container footer-main">
         <a class="brand" href="#top">MIHIR BALDANIYA</a>
         <nav aria-label="Footer navigation">
-          <a href="#about">About</a>
-          <a href="#work">Work</a>
-          <a href="#resume">Resume</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
+          <a href="#about">About</a><a href="#work">Work</a
+          ><a href="#resume">Resume</a><a href="#skills">Skills</a
+          ><a href="#contact">Contact</a>
         </nav>
       </div>
-
       <div class="container footer-bottom">
-        <!-- The year is filled in automatically by js/script.js -->
-        <span>© <span id="year"></span> Mihir Baldaniya. All rights reserved.</span>
-        <span>Full Stack Web Developer · Gujarat, India</span>
+        <span
+          >© <span id="year"></span> Mihir Baldaniya. All rights reserved.</span
+        >
+        <span>Full Stack Web Developer</span>
       </div>
     </footer>
 
