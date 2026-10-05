@@ -2,343 +2,226 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="404 - Page Not Found | Mihir Baldaniya">
 
-  <meta
-    name="description"
-    content="404 - Page Not Found | Mihir Baldaniya"
-  >
-
-  <link
-    rel="icon"
-    type="image/png"
-    href="assets/images/Logo_B's.png"
-  >
+  <!-- Favicon (browser tab icon) -->
+  <link rel="icon" type="image/png" href="assets/images/Logo_B's.png">
 
   <title>404 | Page Not Found - Mihir Baldaniya</title>
 
   <style>
+    /* ==========================================================================
+       Base & reset
+       ========================================================================== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     html,
     body {
       width: 100%;
       height: 100%;
     }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
+      background: #111; /* shown while the background image loads */
       overflow: hidden;
-      background: #111;
     }
 
-    /* ================================
-       BACKGROUND IMAGE
-    ================================= */
-
+    /* ==========================================================================
+       Page & background
+       Full-screen photo with the content centered on top.
+       ========================================================================== */
     .error-page {
       position: relative;
       width: 100%;
       min-height: 100vh;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       overflow: hidden;
-
       background-image: url("assets/images/404_bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
-
-
-    /* ================================
-       BLUR + DARK OVERLAY
-    ================================= */
-
+    /* Layer 1: blurred copy of the background.
+       It is slightly larger than the page so the blur doesn't show soft edges. */
     .error-page::before {
       content: "";
       position: absolute;
       inset: -20px;
-
       background: inherit;
-
       filter: blur(7px);
-
       transform: scale(1.05);
-
       z-index: 0;
     }
-
+    /* Layer 2: dark overlay that keeps the white text readable */
     .error-page::after {
       content: "";
       position: absolute;
       inset: 0;
-
       background: rgba(0, 0, 0, 0.48);
-
       z-index: 1;
     }
 
-
-    /* ================================
-       CONTENT
-    ================================= */
-
+    /* ==========================================================================
+       Content
+       ========================================================================== */
+    /* Wrapper (sits above both background layers) */
     .error-content {
       position: relative;
       z-index: 2;
-
       width: 90%;
       max-width: 650px;
-
       text-align: center;
-
       color: #fff;
-
       animation: fadeUp 0.9s ease forwards;
     }
-
-
-    /* ================================
-       404 NUMBER
-    ================================= */
-
+    /* Big "404" number */
     .error-number {
       font-size: clamp(110px, 20vw, 230px);
-
       line-height: 0.85;
-
       font-weight: 700;
-
       letter-spacing: -0.08em;
-
       color: #fff;
-
       opacity: 0.95;
     }
-
-
-    /* ================================
-       TITLE
-    ================================= */
-
     .error-title {
       margin-top: 35px;
-
       font-size: clamp(28px, 5vw, 48px);
-
       font-weight: 500;
-
       letter-spacing: -0.03em;
     }
-
-
-    /* ================================
-       DESCRIPTION
-    ================================= */
-
     .error-description {
       margin: 18px auto 0;
-
       max-width: 480px;
-
       font-size: 15px;
-
       line-height: 1.7;
-
       font-weight: 400;
-
       color: rgba(255, 255, 255, 0.75);
     }
 
-
-    /* ================================
-       BUTTON
-    ================================= */
-
+    /* ==========================================================================
+       "Back to Home" button
+       ========================================================================== */
     .home-button {
       display: inline-flex;
-
       align-items: center;
       justify-content: center;
-
       margin-top: 32px;
-
       padding: 14px 25px;
-
       min-width: 150px;
-
       border: 1px solid rgba(255, 255, 255, 0.5);
-
       border-radius: 50px;
-
       background: rgba(255, 255, 255, 0.95);
-
       color: #111;
-
       text-decoration: none;
-
       font-size: 14px;
-
       font-weight: 600;
-
-      transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        color 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
     }
-
     .home-button span {
       margin-left: 8px;
-
       font-size: 16px;
     }
-
+    /* Hover: button lifts up and the colors invert */
     .home-button:hover {
       transform: translateY(-3px);
-
       background: #111;
-
       color: #fff;
     }
 
-
-    /* ================================
-       BRAND
-    ================================= */
-
+    /* Name at the bottom */
     .error-brand {
       margin-top: 55px;
-
       font-size: 12px;
-
       font-weight: 600;
-
       letter-spacing: 0.16em;
-
       color: rgba(255, 255, 255, 0.7);
     }
 
-
-    /* ================================
-       ANIMATION
-    ================================= */
-
+    /* ==========================================================================
+       Animation
+       ========================================================================== */
+    /* Content fades in while sliding up */
     @keyframes fadeUp {
-
       from {
         opacity: 0;
         transform: translateY(25px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
-
     }
 
-
-    /* ================================
-       MOBILE
-    ================================= */
-
+    /* ==========================================================================
+       Responsive: phones (up to 600px)
+       ========================================================================== */
     @media (max-width: 600px) {
-
       .error-page::before {
         filter: blur(5px);
       }
-
       .error-page::after {
         background: rgba(0, 0, 0, 0.55);
       }
-
       .error-number {
         font-size: 125px;
       }
-
       .error-title {
         margin-top: 28px;
-
         font-size: 30px;
       }
-
       .error-description {
         max-width: 330px;
-
         font-size: 14px;
       }
-
       .home-button {
         margin-top: 28px;
-
         padding: 13px 23px;
       }
-
       .error-brand {
         margin-top: 45px;
       }
     }
 
-
-    /* ================================
-       REDUCE MOTION
-    ================================= */
-
+    /* ==========================================================================
+       Reduced motion
+       Turn off animations for visitors who prefer less movement.
+       ========================================================================== */
     @media (prefers-reduced-motion: reduce) {
-
       .error-content {
         animation: none;
       }
-
       .home-button {
         transition: none;
       }
-
     }
-
   </style>
 </head>
 
 <body>
-
   <main class="error-page">
-
     <div class="error-content">
+      <div class="error-number">404</div>
 
-      <div class="error-number">
-        404
-      </div>
-
-      <h1 class="error-title">
-        Page Not Found
-      </h1>
+      <h1 class="error-title">Page Not Found</h1>
 
       <p class="error-description">
-        Sorry, the page you're looking for doesn't exist
-        or may have been moved.
+        Sorry, the page you're looking for doesn't exist or may have been moved.
       </p>
 
+      <!-- Link back to the portfolio home page -->
       <a href="index.html" class="home-button">
         Back to Home
         <span>↗</span>
       </a>
 
-      <div class="error-brand">
-        MIHIR BALDANIYA
-      </div>
-
+      <div class="error-brand">MIHIR BALDANIYA</div>
     </div>
-
   </main>
-
 </body>
 </html>
