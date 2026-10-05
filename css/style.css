@@ -1,3 +1,28 @@
+/* ==========================================================================
+   Mihir Baldaniya – Portfolio Stylesheet
+   --------------------------------------------------------------------------
+   1.  Design tokens (CSS variables)
+   2.  Base & reset
+   3.  Layout helpers
+   4.  Header & navigation
+   5.  Hero
+   6.  Ticker
+   7.  Section titles
+   8.  About
+   9.  Work / projects
+   10. Skills, tech stack & education
+   11. Resume
+   12. Contact & form
+   13. Footer
+   14. Page-load & scroll animations
+   15. Page loaders
+   16. Responsive (900px, 700px, 600px)
+   17. Reduced motion
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Design tokens
+   ========================================================================== */
 :root {
   --bg: #f8f8f6;
   --surface: #ffffff;
@@ -10,9 +35,13 @@
   --accent: #1d5c42;
   --accent-soft: #e4efe9;
   --danger: #b43c3c;
+  --soft-2: #e2e2dc; /* hover shadow colour for project cards */
   --container: 1160px;
 }
 
+/* ==========================================================================
+   2. Base & reset
+   ========================================================================== */
 * {
   box-sizing: border-box;
 }
@@ -23,150 +52,27 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 14px;
   line-height: 1.65;
+  /* Hidden until the loader finishes (see .page-loaded below) */
+  overflow: hidden;
+  /* Fade the page in once JS adds .page-ready */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  /* Stop visitors from selecting / copying page content */
+  user-select: none;
+  -webkit-user-select: none;
+}
+body.page-ready {
+  opacity: 1;
+}
+/* Unlock scrolling after the loader is gone */
+body.page-loaded {
   overflow-x: hidden;
+  overflow-y: auto;
 }
-.project-image {
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: #eeeeeb;
-  position: relative;
-
-  transition:
-    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
-    box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  display: block;
-
-  object-fit: cover;
-  object-position: center;
-
-  transition:
-    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
-    filter 0.5s ease;
-}
-
-/* Project hover animation */
-.project:hover .project-image {
-  transform: translateY(-7px);
-  box-shadow: 18px 18px 0 var(--soft-2);
-}
-
-.project:hover .project-image img {
-  transform: scale(1.035);
-}
-
-/* Optional subtle overlay */
-.project-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.08),
-    transparent 45%
-  );
-
-  pointer-events: none;
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-  .project-image {
-    min-height: 300px;
-  }
-
-  .project-image img {
-    object-fit: cover;
-  }
-
-  .project:hover .project-image {
-    transform: translateY(-4px);
-    box-shadow: 8px 8px 0 var(--soft-2);
-  }
-}
-
-.project-image {
-  width: 100%;
-  min-height: 420px;
-  overflow: hidden;
-  position: relative;
-
-  border: 1px solid var(--line);
-  background: #eeeeeb;
-
-  user-select: none;
-  -webkit-user-select: none;
-
-  transition:
-    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
-    box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  display: block;
-
-  object-fit: cover;
-  object-position: center;
-
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
-
-  /* Prevent clicking/opening */
-  pointer-events: none;
-
-  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.project:hover .project-image {
-  transform: translateY(-7px);
-  box-shadow: 18px 18px 0 var(--soft-2);
-}
-
-.project:hover .project-image img {
-  transform: scale(1.035);
-}
-
-@media (max-width: 700px) {
-  .project-image {
-    min-height: 300px;
-  }
-
-  .project:hover .project-image {
-    transform: translateY(-4px);
-    box-shadow: 8px 8px 0 var(--soft-2);
-  }
-
-  .project:hover .project-image img {
-    transform: scale(1.02);
-  }
-}
-
-body {
-  user-select: none;
-  -webkit-user-select: none;
-}
-
+/* Form fields must stay selectable */
 input,
 textarea {
   user-select: text;
@@ -201,6 +107,10 @@ h3 {
   line-height: 1.05;
   letter-spacing: -0.045em;
 }
+
+/* ==========================================================================
+   3. Layout helpers
+   ========================================================================== */
 .container {
   width: min(var(--container), calc(100% - 48px));
   margin-inline: auto;
@@ -209,6 +119,7 @@ h3 {
   padding: 115px 0;
   border-top: 1px solid var(--line);
 }
+/* Accessibility: jump straight to content with the keyboard */
 .skip-link {
   position: fixed;
   top: -100px;
@@ -222,6 +133,9 @@ h3 {
   top: 16px;
 }
 
+/* ==========================================================================
+   4. Header & navigation
+   ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
@@ -236,10 +150,35 @@ h3 {
   justify-content: space-between;
   align-items: center;
 }
+/* Logo + name in the header */
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.12em;
+  white-space: nowrap;
+  color: inherit;
+  text-decoration: none;
+}
+.brand-logo {
+  width: 38px;
+  height: 38px;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+.brand span {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #111;
 }
 .site-nav {
   display: flex;
@@ -248,10 +187,17 @@ h3 {
   color: var(--muted);
   font-size: 12px;
 }
+.site-nav a {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
 .site-nav a:hover,
 .site-nav a.active {
   color: var(--text);
 }
+.site-nav a:hover {
+  transform: translateY(-2px);
+}
+/* Hamburger button (mobile only) */
 .menu-toggle {
   display: none;
   background: none;
@@ -268,6 +214,9 @@ h3 {
   margin-top: 7px;
 }
 
+/* ==========================================================================
+   5. Hero
+   ========================================================================== */
 .hero {
   padding: 82px 0 110px;
   border-top: 0;
@@ -282,6 +231,7 @@ h3 {
 .hero-photo {
   align-self: center;
 }
+/* Placeholder photo box with initials */
 .photo-box {
   width: 320px;
   aspect-ratio: 0.95;
@@ -296,6 +246,11 @@ h3 {
   font-size: 74px;
   font-weight: 800;
   letter-spacing: -0.08em;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), letter-spacing 0.6s ease;
+}
+.photo-box:hover > span {
+  transform: scale(1.08) rotate(-3deg);
+  letter-spacing: 0.02em;
 }
 .hero-content {
   max-width: 760px;
@@ -335,6 +290,7 @@ h3 {
 .hero-links a:hover {
   color: var(--accent);
 }
+/* Main call-to-action button */
 .primary-link {
   display: inline-flex;
   align-items: center;
@@ -344,15 +300,16 @@ h3 {
   padding: 12px 17px;
   border-radius: 3px;
   font-weight: 700;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 .primary-link:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   background: var(--accent);
 }
 
+/* ==========================================================================
+   6. Ticker (scrolling text strip)
+   ========================================================================== */
 .ticker {
   overflow: hidden;
   border-block: 1px solid var(--line);
@@ -364,7 +321,7 @@ h3 {
   align-items: center;
   gap: 28px;
   padding: 17px 0;
-  animation: move 34s linear infinite;
+  animation: tickerMove 30s linear infinite;
 }
 .ticker-track span {
   color: var(--muted);
@@ -377,12 +334,19 @@ h3 {
   color: var(--accent);
   font-size: 10px;
 }
-@keyframes move {
+/* Content is duplicated in the HTML, so moving -50% gives a seamless loop */
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
   to {
     transform: translateX(-50%);
   }
 }
 
+/* ==========================================================================
+   7. Section titles
+   ========================================================================== */
 .section-title {
   display: grid;
   grid-template-columns: 48px 1fr;
@@ -392,11 +356,7 @@ h3 {
 }
 .section-title > span {
   color: var(--faint);
-  font:
-    11px ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    monospace;
+  font: 11px ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 .section-title h2 {
   font-size: clamp(42px, 5.4vw, 68px);
@@ -408,6 +368,9 @@ h3 {
   max-width: 500px;
 }
 
+/* ==========================================================================
+   8. About
+   ========================================================================== */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -444,6 +407,10 @@ h3 {
   padding: 13px 0;
   border-bottom: 1px solid var(--line);
   font-size: 12px;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+.quick-info > div:hover {
+  padding-left: 8px;
 }
 .quick-info span {
   color: var(--faint);
@@ -455,6 +422,9 @@ h3 {
   color: var(--accent);
 }
 
+/* ==========================================================================
+   9. Work / projects
+   ========================================================================== */
 .work-section {
   background: #f2f2ef;
 }
@@ -462,6 +432,7 @@ h3 {
   display: grid;
   gap: 90px;
 }
+/* Two-column row: image + text. Even rows are flipped. */
 .project {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -474,12 +445,51 @@ h3 {
 .project:nth-child(even) .project-image {
   order: 2;
 }
+/* Image frame (also holds the CSS-only mock screens below) */
 .project-image {
+  width: 100%;
+  height: 100%;
   min-height: 480px;
   padding: 28px;
+  position: relative;
+  overflow: hidden;
   background: #deded8;
   border: 1px solid #d1d1ca;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
+.project-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  /* Block dragging and clicking the image */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+/* Soft light overlay on top of the image */
+.project-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 45%);
+  pointer-events: none;
+}
+/* Hover: card lifts, gets a flat shadow, image zooms slightly */
+.project:hover .project-image {
+  transform: translateY(-7px);
+  box-shadow: 18px 18px 0 var(--soft-2);
+}
+.project:hover .project-image img {
+  transform: scale(1.035);
+}
+
+/* ----- Mock browser window (pure CSS preview) ----- */
 .mock-browser {
   height: 100%;
   min-height: 420px;
@@ -507,6 +517,7 @@ h3 {
   color: #9a9a94;
   font-size: 8px;
 }
+/* Mock screen: school website */
 .school-screen {
   color: #171b18;
   min-height: 388px;
@@ -555,6 +566,7 @@ h3 {
   background: #e0e4df;
   border-radius: 4px;
 }
+/* Mock screen: Alma app */
 .alma-screen {
   min-height: 388px;
   background: #f3f0f8;
@@ -606,11 +618,28 @@ h3 {
   border-radius: 7px;
   margin-bottom: 7px;
 }
+/* Floating effect on the mock headlines and the phone */
+.school-screen .school-hero strong,
+.alma-screen .alma-hero strong {
+  animation: softFloat 4s ease-in-out infinite;
+}
+.phone-card {
+  animation: softFloat 5s ease-in-out infinite;
+}
+@keyframes softFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ----- Project text ----- */
 .project-label {
   color: var(--faint);
-  font:
-    9px ui-monospace,
-    monospace;
+  font: 9px ui-monospace, monospace;
   letter-spacing: 0.08em;
   margin-bottom: 17px;
 }
@@ -662,6 +691,9 @@ h3 {
   border-color: var(--accent);
 }
 
+/* ==========================================================================
+   10. Skills, tech stack & education
+   ========================================================================== */
 .skill-columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -670,6 +702,10 @@ h3 {
 .skill-block {
   border-top: 1px solid var(--line);
   padding-top: 21px;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+.skill-block:hover {
+  transform: translateY(-5px);
 }
 .skill-block h3 {
   font-size: 27px;
@@ -693,10 +729,13 @@ h3 {
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   font-size: 13px;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 .tech-row span:hover {
   color: var(--accent);
   background: var(--accent-soft);
+  transform: translateY(-4px);
+  border-color: #1c5b43;
 }
 .education {
   margin-top: 75px;
@@ -708,6 +747,7 @@ h3 {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 28px 0;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 .education-row h3 {
   font-size: 23px;
@@ -720,13 +760,14 @@ h3 {
 }
 .education-row > strong {
   color: var(--muted);
-  font:
-    11px ui-monospace,
-    monospace;
+  font: 11px ui-monospace, monospace;
   white-space: nowrap;
   padding-top: 5px;
 }
 
+/* ==========================================================================
+   11. Resume
+   ========================================================================== */
 .resume-section {
   background: var(--surface);
 }
@@ -739,12 +780,14 @@ h3 {
   gap: 45px;
   padding: 35px 0;
   border-bottom: 1px solid var(--line);
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+.resume-item:hover {
+  transform: translateX(7px);
 }
 .resume-date {
   color: var(--faint);
-  font:
-    10px ui-monospace,
-    monospace;
+  font: 10px ui-monospace, monospace;
   padding-top: 3px;
 }
 .resume-item h3 {
@@ -774,6 +817,9 @@ h3 {
   margin: 0;
 }
 
+/* ==========================================================================
+   12. Contact & form
+   ========================================================================== */
 .contact-section {
   background: #f2f2ef;
 }
@@ -848,6 +894,7 @@ form label {
   text-transform: uppercase;
   padding-top: 24px;
 }
+/* Underline-style inputs */
 input,
 textarea {
   width: 100%;
@@ -869,6 +916,7 @@ input:focus,
 textarea:focus {
   border-color: var(--accent);
 }
+/* Validation message under each field */
 form label small {
   min-height: 15px;
   color: var(--danger);
@@ -896,6 +944,9 @@ form button:hover {
   min-height: 18px;
 }
 
+/* ==========================================================================
+   13. Footer
+   ========================================================================== */
 footer {
   background: var(--text);
   color: white;
@@ -926,6 +977,198 @@ footer {
   font-size: 9px;
 }
 
+/* ==========================================================================
+   14. Page-load & scroll animations
+   ========================================================================== */
+/* Hero fades up after the page is ready */
+.hero-photo,
+.hero-content {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.page-ready .hero-photo {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.15s;
+}
+.page-ready .hero-content {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.3s;
+}
+/* Scroll reveal: JS adds .visible when the element enters the viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity 0.85s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.reveal.from-left {
+  transform: translateX(-45px);
+}
+.reveal.from-right {
+  transform: translateX(45px);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ==========================================================================
+   15. Page loaders
+   --------------------------------------------------------------------------
+   Three loader styles are kept below. #page-loader is the final one in use;
+   .page-loader and #loader are older versions. Delete them if your HTML
+   no longer uses those IDs / classes.
+   ========================================================================== */
+
+/* ----- Old loader 1: .page-loader ----- */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  background: #171717;
+  color: #fff;
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0.7s;
+}
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-inner {
+  text-align: center;
+  animation: loaderIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.loader-inner span {
+  display: block;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+}
+.loader-inner small {
+  display: block;
+  margin-top: 10px;
+  color: #aaa;
+  font: 500 9px "DM Mono", monospace;
+  letter-spacing: 0.18em;
+}
+@keyframes loaderIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ----- Old loader 2: #loader (hidden when body gets .loaded) ----- */
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f5;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+body.loaded #loader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ----- Final loader: #page-loader (two black panels split open) ----- */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  overflow: hidden;
+  pointer-events: none;
+}
+.loader-panel {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #000000;
+  z-index: 1;
+  transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.loader-top {
+  top: 0;
+  transform: translateY(0);
+}
+.loader-bottom {
+  bottom: 0;
+  transform: translateY(0);
+}
+.loader-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.35s ease, transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.loader-logo img {
+  display: block;
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+/* Loading text under the logo */
+.loader-content {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 105px);
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  transition: opacity 0.35s ease, transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+}
+/* Exit: panels slide apart and the logo fades out */
+#page-loader.loader-finish .loader-top {
+  transform: translateY(-100%);
+}
+#page-loader.loader-finish .loader-bottom {
+  transform: translateY(100%);
+}
+#page-loader.loader-finish .loader-logo {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85);
+}
+
+/* ==========================================================================
+   16. Responsive
+   ========================================================================== */
+
+/* ----- Tablet: up to 900px ----- */
 @media (max-width: 900px) {
   .hero-layout {
     grid-template-columns: 190px 1fr;
@@ -954,6 +1197,8 @@ footer {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* ----- Mobile: up to 700px ----- */
 @media (max-width: 700px) {
   .container {
     width: min(100% - 32px, var(--container));
@@ -961,6 +1206,7 @@ footer {
   .section {
     padding: 82px 0;
   }
+  /* Header: dropdown menu */
   .nav-wrap {
     min-height: 62px;
   }
@@ -994,6 +1240,7 @@ footer {
   .site-nav a:last-child {
     border-bottom: 0;
   }
+  /* Hero */
   .hero {
     padding: 60px 0 85px;
   }
@@ -1014,6 +1261,7 @@ footer {
   .intro {
     font-size: 16px;
   }
+  /* Section titles & about */
   .section-title {
     grid-template-columns: 34px 1fr;
     gap: 12px;
@@ -1032,12 +1280,20 @@ footer {
   .statement {
     font-size: 35px;
   }
+  /* Projects */
   .project-list {
     gap: 65px;
   }
   .project-image {
     min-height: 340px;
     padding: 18px;
+  }
+  .project:hover .project-image {
+    transform: translateY(-4px);
+    box-shadow: 8px 8px 0 var(--soft-2);
+  }
+  .project:hover .project-image img {
+    transform: scale(1.02);
   }
   .mock-browser {
     min-height: 304px;
@@ -1068,6 +1324,7 @@ footer {
   .project-content ul {
     columns: 1;
   }
+  /* Skills, education, resume */
   .skill-columns {
     grid-template-columns: 1fr;
   }
@@ -1090,6 +1347,7 @@ footer {
     grid-template-columns: 1fr;
     gap: 8px;
   }
+  /* Contact */
   .contact-intro {
     margin-bottom: 50px;
   }
@@ -1104,6 +1362,7 @@ footer {
     grid-template-columns: 1fr;
     gap: 0;
   }
+  /* Footer */
   .footer-main {
     display: block;
   }
@@ -1118,208 +1377,26 @@ footer {
     display: block;
     margin-top: 8px;
   }
-}
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .ticker-track {
-    animation: none;
-  }
-}
-
-/* ===== Motion & interaction layer ===== */
-body {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  background: #f8f8f6;
-}
-body.page-ready {
-  opacity: 1;
-}
-.page-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 3000;
-  display: grid;
-  place-items: center;
-  background: #171717;
-  color: #fff;
-  transition:
-    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
-    visibility 0.7s;
-}
-.page-loader.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-.loader-inner {
-  text-align: center;
-  animation: loaderIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-}
-.loader-inner span {
-  display: block;
-  font-size: 38px;
-  font-weight: 800;
-  letter-spacing: -0.08em;
-}
-.loader-inner small {
-  display: block;
-  margin-top: 10px;
-  color: #aaa;
-  font:
-    500 9px "DM Mono",
-    monospace;
-  letter-spacing: 0.18em;
-}
-@keyframes loaderIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.hero-photo,
-.hero-content {
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-.page-ready .hero-photo {
-  opacity: 1;
-  transform: none;
-  transition-delay: 0.15s;
-}
-.page-ready .hero-content {
-  opacity: 1;
-  transform: none;
-  transition-delay: 0.3s;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(45px);
-  transition:
-    opacity 0.85s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-.reveal.from-left {
-  transform: translateX(-45px);
-}
-.reveal.from-right {
-  transform: translateX(45px);
-}
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
-.project-image,
-.skill-block,
-.resume-item,
-.education-row,
-.quick-info > div,
-.tech-row span {
-  transition:
-    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
-    box-shadow 0.4s ease,
-    border-color 0.3s ease;
-}
-.project-image:hover {
-  transform: translateY(-8px);
-  box-shadow: 16px 16px 0 #e2e2dc;
-}
-.skill-block:hover {
-  transform: translateY(-5px);
-}
-.resume-item:hover {
-  transform: translateX(7px);
-}
-.quick-info > div:hover {
-  padding-left: 8px;
-}
-.tech-row span:hover {
-  transform: translateY(-4px);
-  border-color: #1c5b43;
-}
-
-.photo-box {
-  overflow: hidden;
-}
-.photo-box > span {
-  transition:
-    transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
-    letter-spacing 0.6s ease;
-}
-.photo-box:hover > span {
-  transform: scale(1.08) rotate(-3deg);
-  letter-spacing: 0.02em;
-}
-
-.primary-link {
-  transition:
-    transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease;
-}
-.primary-link:hover {
-  transform: translateY(-4px);
-}
-.site-nav a {
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-.site-nav a:hover {
-  transform: translateY(-2px);
-}
-
-.school-screen .school-hero strong,
-.alma-screen .alma-hero strong {
-  animation: softFloat 4s ease-in-out infinite;
-}
-.phone-card {
-  animation: softFloat 5s ease-in-out infinite;
-}
-@keyframes softFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.ticker-track {
-  animation: tickerMove 30s linear infinite;
-}
-@keyframes tickerMove {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 700px) {
+  /* Slide in from the bottom instead of the sides on small screens */
   .reveal.from-left,
   .reveal.from-right {
     transform: translateY(35px);
   }
-  .project-image:hover {
-    transform: translateY(-4px);
+}
+
+/* ----- Small phones: up to 600px ----- */
+@media (max-width: 600px) {
+  .loader-logo img {
+    width: 120px;
   }
 }
+
+/* ==========================================================================
+   17. Reduced motion
+   --------------------------------------------------------------------------
+   Respect the visitor's "reduce motion" system setting: stop animations,
+   skip the loader and show all content immediately.
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1331,11 +1408,18 @@ body.page-ready {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  .ticker-track {
+    animation: none;
+  }
   body {
     opacity: 1;
   }
   .page-loader {
     display: none;
+  }
+  .loader-panel,
+  .loader-logo {
+    transition: none;
   }
   .hero-photo,
   .hero-content,
@@ -1346,245 +1430,3 @@ body.page-ready {
     transform: none;
   }
 }
-
-#loader {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f7f7f5;
-  opacity: 1;
-  visibility: visible;
-  transition:
-    opacity 0.5s ease,
-    visibility 0.5s ease;
-}
-
-body.loaded #loader {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/*app loader final*/
-
-/* =========================================
-   PAGE LOADER
-========================================= */
-
-#page-loader {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99999;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-/* =========================================
-   LOADER PANELS
-========================================= */
-
-.loader-panel {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 50%;
-
-  background: #000000;
-
-  z-index: 1;
-
-  transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1);
-}
-
-/* Top half */
-
-.loader-top {
-  top: 0;
-  transform: translateY(0);
-}
-
-/* Bottom half */
-
-.loader-bottom {
-  bottom: 0;
-  transform: translateY(0);
-}
-
-/* =========================================
-   LOGO
-========================================= */
-
-.loader-logo {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  z-index: 5;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition:
-    opacity 0.35s ease,
-    transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
-}
-
-.loader-logo img {
-  display: block;
-
-  width: 150px;
-  height: auto;
-
-  object-fit: contain;
-
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
-
-  pointer-events: none;
-}
-
-/* =========================================
-   LOADER EXIT ANIMATION
-========================================= */
-
-#page-loader.loader-finish .loader-top {
-  transform: translateY(-100%);
-}
-
-#page-loader.loader-finish .loader-bottom {
-  transform: translateY(100%);
-}
-
-#page-loader.loader-finish .loader-logo {
-  opacity: 0;
-
-  transform: translate(-50%, -50%) scale(0.85);
-}
-
-/* =========================================
-   BODY
-========================================= */
-
-body {
-  overflow: hidden;
-}
-
-body.page-loaded {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-  .loader-logo img {
-    width: 120px;
-  }
-}
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .loader-panel,
-  .loader-logo {
-    transition: none;
-  }
-}
-
-.loader-content {
-  position: absolute;
-
-  left: 50%;
-  top: calc(50% + 105px);
-
-  transform: translateX(-50%);
-
-  z-index: 10;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  white-space: nowrap;
-
-  font-family: Arial, sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-
-  letter-spacing: 0.12em;
-
-  /* Solid white */
-  color: #ffffff;
-
-  transition:
-    opacity 0.35s ease,
-    transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
-}
-
-
-/* header logo  */
-
-/* =========================================
-   HEADER BRAND
-========================================= */
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  text-decoration: none;
-  color: inherit;
-
-  white-space: nowrap;
-}
-
-
-/* Logo */
-
-.brand-logo {
-  width: 38px;
-  height: 38px;
-
-  object-fit: cover;
-
-  border-radius: 50%;
-
-  display: block;
-
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
-
-  pointer-events: none;
-}
-
-
-/* Name */
-
-.brand span {
-  display: inline-block;
-
-  font-size: 15px;
-  font-weight: 700;
-
-  letter-spacing: 0.08em;
-
-  color: #111;
-}
-
