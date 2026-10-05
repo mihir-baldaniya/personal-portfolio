@@ -1,52 +1,70 @@
-# Mihir Baldaniya Portfolio
+# Mihir Baldaniya – Portfolio
 
-A premium one-page Full Stack Web Developer portfolio built with:
+Personal portfolio website of a Full Stack Web Developer.
+Live site: [mihirbaldaniya.site](https://mihirbaldaniya.site)
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
+Built with plain **HTML**, **CSS** and **JavaScript**. There is no framework, build step or package to install.
 
-## Structure
+## Features
+
+- Animated page loader (two panels split open)
+- Sticky header with a mobile menu and an active-section highlight
+- Smooth scrolling between sections
+- Scrolling ticker strip
+- Scroll-reveal animations
+- Project cards with hover and mouse-tilt effects
+- Contact form with validation, sent through [Web3Forms](https://web3forms.com)
+- Custom 404 page
+- Reduced-motion support for visitors who prefer less animation
+
+## Project structure
 
 ```text
 portfolio/
-├── index.html
+├── index.html          Main page
+├── 404.html            "Page not found" page
+├── resume.pdf          Downloadable resume
 ├── css/
-│   └── style.css
+│   └── style.css       All styles
 ├── js/
-│   └── script.js
+│   └── script.js       All behavior (menu, animations, form)
 ├── assets/
-│   ├── images/
-│   │   ├── profile.jpg
-│   │   ├── velo-school.jpg
-│   │   └── alma-ai.jpg
-│   └── resume/
-│       └── resume.pdf
+│   └── images/
+│       ├── Logo_B's.png     Favicon and loader logo
+│       ├── Logo_Bs.svg      Header logo
+│       ├── profile.png      Profile photo
+│       ├── velo-school.png  Project preview
+│       ├── alma-ai.png      Project preview
+│       └── 404_bg.jpg       404 page background
 └── README.md
 ```
 
 ## Run locally
 
-Open `index.html` directly in a modern browser. No build step or package installation is required.
+Open `index.html` in any modern browser.
 
-For a local development server, you can also use VS Code Live Server.
+For a local server with auto-reload, use the **Live Server** extension in VS Code.
 
-## Replace later
+## Customize
 
-- Profile image: update the `src=""` on the profile image in `index.html`.
-- Resume: replace the `href="#"` values on the two resume buttons with the path or URL to your resume.
-- Project visuals: the current project previews are CSS-built placeholders, so the site works without external images. If desired, replace those visual blocks with `<img>` elements pointing to the files in `assets/images/`.
-- Contact form: the JavaScript currently validates the form and shows a success message only. Connect it to a real form service or backend when needed.
+| What | Where |
+| --- | --- |
+| Name, text, projects, skills, experience | `index.html` |
+| Colors and fonts | `:root` variables at the top of `css/style.css` |
+| Profile photo | Replace `assets/images/profile.png` |
+| Resume | Replace `resume.pdf` |
+| Project previews | Replace the images in `assets/images/` and edit the project blocks in `index.html` |
+| Loader time | `LOADER_DELAY` in `js/script.js` |
 
-## Included interactions
+## Contact form setup
 
-- Sticky navbar with scroll state
-- Mobile hamburger navigation
-- Smooth section navigation
-- Active section navigation state
-- CSS marquee
-- Scroll reveal using IntersectionObserver
-- Project hover interactions
-- Client-side contact form validation
-- Current footer year
-- Reduced-motion support
+The form sends messages with Web3Forms.
+
+1. Create a free access key at [web3forms.com](https://web3forms.com).
+2. Replace `WEB3FORMS_KEY` in `js/script.js` (and the hidden `access_key` field in `index.html`) with your key.
+3. In the Web3Forms dashboard, restrict the key to your domain so nobody else can use it.
+
+## Notes
+
+- Image and file paths are relative. If you host `404.html` on a server that shows it at any URL, change them to start with `/` (for example `/assets/images/404_bg.jpg`) so images still load on nested URLs.
+- The script blocks right-click on images and some shortcuts (F12, Ctrl+U, Ctrl+S). This is only a light deterrent and does not truly protect the page.
